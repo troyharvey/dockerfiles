@@ -46,12 +46,12 @@ RUN apk del -f .build-deps
 # Setup working directory
 WORKDIR /var/www
 
-ADD --chown=www-data:www-data ./docker/php/site.conf /etc/nginx/conf.d/default.conf
-ADD --chown=www-data:www-data ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.conf
-ADD --chown=www-data:www-data ./docker/php/troyharvey.ini /usr/local/etc/php/conf.d/troyharvey.ini
+ADD --chown=www-data:www-data ./conf/site.conf /etc/nginx/conf.d/default.conf
+ADD --chown=www-data:www-data ./conf/php-fpm.conf /usr/local/etc/php-fpm.conf
+ADD --chown=www-data:www-data ./conf/troyharvey.ini /usr/local/etc/php/conf.d/troyharvey.ini
 
-ADD ./docker/php/nginx.conf /etc/nginx/nginx.conf
-ADD ./docker/php/services.d /etc/services.d
+ADD ./conf/nginx.conf /etc/nginx/nginx.conf
+ADD ./conf/services.d /etc/services.d
 
 EXPOSE 80
 CMD "/init"
